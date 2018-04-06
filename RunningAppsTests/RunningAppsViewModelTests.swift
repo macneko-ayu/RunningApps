@@ -20,7 +20,8 @@ class RunningAppsViewModelTests: XCTestCase {
     }
 
     func testInitializeFromValidBundleIdentifier() {
-        let viewModel = RunningAppsViewModel(bundleIdentifiers: ["com.apple.dt.xcode"])
+        let viewModel = RunningAppsViewModel()
+        viewModel.updateMetaDatas(bundleIdentifiers: ["com.apple.dt.xcode"])
         XCTAssertNotNil(viewModel)
         XCTAssertTrue(viewModel.metaDatas.count > 0)
         let item = viewModel.metaDatas.first
@@ -34,7 +35,8 @@ class RunningAppsViewModelTests: XCTestCase {
     }
     
     func testInitializeFromInValidBundleIdentifier() {
-        let viewModel = RunningAppsViewModel(bundleIdentifiers: ["com.hoge.fuga"])
+        let viewModel = RunningAppsViewModel()
+        viewModel.updateMetaDatas(bundleIdentifiers: ["com.hoge.fuga"])
         XCTAssertNotNil(viewModel)
         XCTAssertTrue(viewModel.metaDatas.count == 0)
     }

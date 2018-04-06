@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -141,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
                                 <clipView key="contentView" id="Hpv-tb-QYP">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="g6S-NU-KPW">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="270"/>
@@ -266,14 +265,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="appListArrayController" destination="vyH-Vw-V1e" id="8Ih-bO-dzZ"/>
+                        <outlet property="runningAppsArrayController" destination="vyH-Vw-V1e" id="8Ih-bO-dzZ"/>
                         <outlet property="tableView" destination="g6S-NU-KPW" id="hcw-0i-8s8"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <arrayController objectClassName="AppListItemModel" id="vyH-Vw-V1e">
                     <connections>
-                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.items" id="jRM-7t-Cwf"/>
+                        <binding destination="XfG-lQ-9wD" name="contentArray" keyPath="self.viewModel.metaDatas" id="tJh-rg-HWd"/>
                     </connections>
                 </arrayController>
             </objects>
