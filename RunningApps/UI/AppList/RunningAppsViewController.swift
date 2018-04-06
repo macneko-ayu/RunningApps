@@ -1,5 +1,5 @@
 //
-//  AppListViewController.swift
+//  RunningAppsViewController.swift
 //  RunningApps
 //
 //  Created by 横田孝次郎 on 2017/01/24.
@@ -8,11 +8,11 @@
 
 import Cocoa
 
-class AppListViewController: NSViewController {
+class RunningAppsViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var appListArrayController: NSArrayController!
-    @objc var items = [AppListItemModel.AppListItem]()
+    @objc var items = [ApplicationMetaData]()
 
     // MARK: Initialization
     
@@ -42,7 +42,7 @@ class AppListViewController: NSViewController {
     private func loadItems() {
         let runningApps = NSWorkspace.shared.runningApplications.filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
         let bundleIdentifiers = runningApps.flatMap { $0.bundleIdentifier }
-        let listItems = AppListItemModel(bundleIdentifiers: bundleIdentifiers).items.filter { $0.isActive && $0.identifier != Bundle.main.bundleIdentifier }
+        let listItems = RunningAppsViewModel(bundleIdentifiers: bundleIdentifiers).metaDatas.filter { $0.isActive && $0.identifier != Bundle.main.bundleIdentifier }
         listItems.forEach { appListArrayController.addObject($0) }
         DispatchQueue.main.async {
             self.appListArrayController.rearrangeObjects()
@@ -65,7 +65,7 @@ class AppListViewController: NSViewController {
         if identifier == Bundle.main.bundleIdentifier {
             return
         }
-        let listItems = AppListItemModel(bundleIdentifiers: [identifier]).items.filter { $0.url.path == appUrl.path }
+        let listItems = RunningAppsViewModel(bundleIdentifiers: [identifier]).metaDatas.filter { $0.url.path == appUrl.path }
         listItems.forEach { appListArrayController.addObject($0) }
         DispatchQueue.main.async {
             self.appListArrayController.rearrangeObjects()
@@ -77,7 +77,7 @@ class AppListViewController: NSViewController {
         guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
             let identifier = app.bundleIdentifier,
             let appUrl = app.bundleURL,
-            let arrangeObjects = appListArrayController.arrangedObjects as? [AppListItemModel.AppListItem],
+            let arrangeObjects = appListArrayController.arrangedObjects as? [ApplicationMetaData],
             let index = arrangeObjects.index(where: { $0.identifier == identifier && $0.url.path == appUrl.path }) else { return }
         appListArrayController.remove(atArrangedObjectIndex: index)
         DispatchQueue.main.async {
@@ -86,10 +86,10 @@ class AppListViewController: NSViewController {
     }
 }
 
-extension AppListViewController: NSTableViewDelegate {
+extension RunningAppsViewController: NSTableViewDelegate {
     // TODO: UITableViewのように選択した感を出す方法を調査する
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        guard let arrangeObjects = appListArrayController.arrangedObjects as? [AppListItemModel.AppListItem] else { return false }
+        guard let arrangeObjects = appListArrayController.arrangedObjects as? [ApplicationMetaData] else { return false }
         let item = arrangeObjects[row]
         guard let app = NSWorkspace.shared.runningApplications
             .filter ({ (app: NSRunningApplication) in app.activationPolicy == NSApplication.ActivationPolicy.regular })

@@ -1,5 +1,5 @@
 //
-//  AppListItemCellView.swift
+//  RunningAppsCellView.swift
 //  RunningApps
 //
 //  Created by macneko_ayu on 2018/01/23.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AppListItemCellView: NSTableCellView {
+class RunningAppsCellView: NSTableCellView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

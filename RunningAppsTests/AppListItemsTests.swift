@@ -1,5 +1,5 @@
 //
-//  AppListItemModelTests.swift
+//  ApplicationMetaDataTests.swift
 //  RunningAppsTests
 //
 //  Created by 横田孝次郎 on 2017/01/24.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import RunningApps
 
-class AppListItemModelTests: XCTestCase {
+class ApplicationMetaDataTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
@@ -21,29 +21,8 @@ class AppListItemModelTests: XCTestCase {
         super.tearDown()
     }
 
-    func testInitislizeAppListItem() {
-        let model = AppListItemModel.AppListItem(name: "Xcode", url: URL(fileURLWithPath: "/Applications/Xcode.app"), identifier: "com.apple.dt.xcode", version: "1", versionDesctiption: "verson 1", icon: nil, isActive: false)
+    func testInitislizeApplicationMetaData() {
+        let model = ApplicationMetaData(name: "Xcode", url: URL(fileURLWithPath: "/Applications/Xcode.app"), identifier: "com.apple.dt.xcode", version: "1", versionDesctiption: "verson 1", icon: nil, isActive: false)
         XCTAssertNotNil(model)
     }
-
-    func testInitializeFromValidBundleIdentifier() {
-        let model = AppListItemModel(bundleIdentifiers: ["com.apple.dt.xcode"])
-        XCTAssertNotNil(model)
-        XCTAssertTrue(model.items.count > 0)
-        let item = model.items.first
-        XCTAssertEqual(item!.name, "Xcode")
-        XCTAssertEqual(item!.identifier, "com.apple.dt.Xcode")
-        XCTAssertNotNil(item!.version)
-        XCTAssertNotNil(item!.versionDesctiption)
-        XCTAssertNotNil(item!.icon)
-        XCTAssertEqual(item!.url, URL(fileURLWithPath: "/Applications/Xcode.app"))
-        XCTAssertEqual(item!.isActive, true)
-    }
-    
-    func testInitializeFromInValidBundleIdentifier() {
-        let model = AppListItemModel(bundleIdentifiers: ["com.hoge.fuga"])
-        XCTAssertNotNil(model)
-        XCTAssertTrue(model.items.count == 0)
-    }
-
 }
