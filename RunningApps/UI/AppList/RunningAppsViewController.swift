@@ -41,7 +41,7 @@ class RunningAppsViewController: NSViewController {
     // 初回起動時に起動中のアプリケーション一覧を取得してArrayControllerに反映（自身は含めない）
     private func loadItems() {
         let runningApps = NSWorkspace.shared.runningApplications.filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
-        let bundleIdentifiers = runningApps.flatMap { $0.bundleIdentifier }
+        let bundleIdentifiers = runningApps.compactMap { $0.bundleIdentifier }
         let listItems = RunningAppsViewModel(bundleIdentifiers: bundleIdentifiers).metaDatas.filter { $0.isActive && $0.identifier != Bundle.main.bundleIdentifier }
         listItems.forEach { appListArrayController.addObject($0) }
         DispatchQueue.main.async {

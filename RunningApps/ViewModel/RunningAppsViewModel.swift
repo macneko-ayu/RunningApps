@@ -19,7 +19,7 @@ class RunningAppsViewModel: NSObject {
             guard let appUrls = LSCopyApplicationURLsForBundleIdentifier(identifier as CFString, nil)?.takeUnretainedValue() as? [URL] else {
                 return
             }
-            let apps = appUrls.flatMap { (appUrl: URL) -> ApplicationMetaData? in
+            let apps = appUrls.compactMap { (appUrl: URL) -> ApplicationMetaData? in
                 guard let bundle = Bundle(url: appUrl), let identifier = bundle.bundleIdentifier, let infoDictionary = bundle.infoDictionary else {
                     return nil
                 }
@@ -30,7 +30,7 @@ class RunningAppsViewModel: NSObject {
                 let versionDesctiption = "version \(version)"
                 
                 let runningApps = NSWorkspace.shared.runningApplications.filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
-                let activeState = runningApps.flatMap { $0.bundleURL }.filter { $0.path == appUrl.path }.count > 0
+                let activeState = runningApps.compactMap { $0.bundleURL }.filter { $0.path == appUrl.path }.count > 0
                 return ApplicationMetaData(name: name, url: appUrl, identifier: identifier, version: version, versionDesctiption: versionDesctiption, icon: icon, isActive: activeState)
             }
             result.append(contentsOf: apps)
