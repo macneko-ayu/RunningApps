@@ -31,6 +31,7 @@ class RunningAppsViewController: NSViewController {
         super.viewDidLoad()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
         runningAppsArrayController.sortDescriptors = [sortDescriptor]
+        tableView.selectionHighlightStyle = .regular
         loadItems()
     }
 
@@ -45,16 +46,18 @@ class RunningAppsViewController: NSViewController {
 }
 
 extension RunningAppsViewController: NSTableViewDelegate {
-    // TODO: UITableViewのように選択した感を出す方法を調査する
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        guard let arrangeObjects = runningAppsArrayController.arrangedObjects as? [ApplicationMetaData] else { return false }
-        let item = arrangeObjects[row]
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        guard let arrangeObjects = runningAppsArrayController.arrangedObjects as? [ApplicationMetaData] else { return }
+        let index = tableView.selectedRow
+        let rowView = tableView.rowView(atRow: index, makeIfNecessary: false)
+        rowView?.isEmphasized = true
+        let item = arrangeObjects[index]
         guard let app = NSWorkspace.shared.runningApplications
             .filter ({ (app: NSRunningApplication) in app.activationPolicy == NSApplication.ActivationPolicy.regular })
             .filter ({ (app: NSRunningApplication) in app.bundleIdentifier == item.identifier && app.bundleURL?.path == item.url.path }).first
-            else { return false }
+            else { return }
         app.activate(options: [])
-        return false
+        tableView.deselectRow(index)
     }
 }
 
