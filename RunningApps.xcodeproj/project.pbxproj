@@ -19,7 +19,7 @@
 		C7C280A02018386F00759588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C280952018386F00759588 /* Main.storyboard */; };
 		C7C280A12018386F00759588 /* ApplicationMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C280982018386F00759588 /* ApplicationMetaData.swift */; };
 		C7C280A22018386F00759588 /* ApplicationMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C280982018386F00759588 /* ApplicationMetaData.swift */; };
-		C7C280A82018389200759588 /* AppListItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C280A42018389200759588 /* AppListItemsTests.swift */; };
+		C7C280A82018389200759588 /* ApplicationMetaDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C280A42018389200759588 /* ApplicationMetaDataTests.swift */; };
 		C7C280A9201851D400759588 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7C280952018386F00759588 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		C7C280932018386F00759588 /* RunningAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningAppsViewController.swift; sourceTree = "<group>"; };
 		C7C280962018386F00759588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7C280982018386F00759588 /* ApplicationMetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationMetaData.swift; sourceTree = "<group>"; };
-		C7C280A42018389200759588 /* AppListItemsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListItemsTests.swift; sourceTree = "<group>"; };
+		C7C280A42018389200759588 /* ApplicationMetaDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationMetaDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 		C7C280832018372B00759588 /* RunningAppsTests */ = {
 			isa = PBXGroup;
 			children = (
-				C7C280A42018389200759588 /* AppListItemsTests.swift */,
+				C7C280A42018389200759588 /* ApplicationMetaDataTests.swift */,
 				C793DA2F20775ACF005A4530 /* RunningAppsViewModelTests.swift */,
 				C7C280862018372B00759588 /* Info.plist */,
 			);
@@ -270,7 +270,7 @@
 				C793DA2E20774DBA005A4530 /* RunningAppsViewModel.swift in Sources */,
 				C7C2809C2018386F00759588 /* RunningAppsCellView.swift in Sources */,
 				C793DA3020775ACF005A4530 /* RunningAppsViewModelTests.swift in Sources */,
-				C7C280A82018389200759588 /* AppListItemsTests.swift in Sources */,
+				C7C280A82018389200759588 /* ApplicationMetaDataTests.swift in Sources */,
 				C7C2809E2018386F00759588 /* RunningAppsViewController.swift in Sources */,
 				C7C280A22018386F00759588 /* ApplicationMetaData.swift in Sources */,
 			);
