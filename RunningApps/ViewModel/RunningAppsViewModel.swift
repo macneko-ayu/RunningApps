@@ -61,7 +61,7 @@ class RunningAppsViewModel: NSObject {
             }
 
             let path = appUrl.path
-            let name = FileManager.default.displayName(atPath: path).components(separatedBy: ".").first ?? ""
+            let name = self.extractName(path: path)
             let icon = NSWorkspace.shared.icon(forFile: path)
             let version = infoDictionary["CFBundleVersion"] as? String ?? "unknown"
             let versionDesctiption = "version \(version)"
@@ -71,6 +71,17 @@ class RunningAppsViewModel: NSObject {
             return ApplicationMetaData(name: name, url: appUrl, identifier: identifier, version: version, versionDesctiption: versionDesctiption, icon: icon, isActive: activeState)
         }
         return appMetaDatas
+    }
+    
+    /// ファイルパスからファイル名を抽出
+    ///
+    /// - Parameter path: ファイルパス
+    /// - Returns: ファイル名
+    private func extractName(path: String) -> String {
+        var components = FileManager.default.displayName(atPath: path).split(separator: ".")
+        
+        components.removeLast()
+        return components.joined(separator: ".") as String
     }
     
     /// Observerを設定
