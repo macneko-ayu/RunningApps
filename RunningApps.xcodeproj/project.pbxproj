@@ -121,7 +121,7 @@
 		C7C280912018386F00759588 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C7C280AA2018526900759588 /* AppList */,
+				C7C280AA2018526900759588 /* RunningApps */,
 				C7C280942018386F00759588 /* Xib */,
 			);
 			path = UI;
@@ -143,13 +143,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C7C280AA2018526900759588 /* AppList */ = {
+		C7C280AA2018526900759588 /* RunningApps */ = {
 			isa = PBXGroup;
 			children = (
 				C7C280922018386F00759588 /* RunningAppsCellView.swift */,
 				C7C280932018386F00759588 /* RunningAppsViewController.swift */,
 			);
-			path = AppList;
+			path = RunningApps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
