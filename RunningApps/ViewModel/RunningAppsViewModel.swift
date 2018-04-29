@@ -33,7 +33,7 @@ class RunningAppsViewModel: NSObject {
     public func updateMetaDatas(bundleIdentifiers: [String]) {
         bundleIdentifiers.forEach { (identifier: String) in
             let metaDatas = makeMetaDatas(bundleIndentifier: identifier)
-            let filteredMetaDatas = metaDatas.filter { $0.isActive && $0.identifier != Bundle.main.bundleIdentifier }
+            let filteredMetaDatas = metaDatas.filter { $0.isRunning && $0.identifier != Bundle.main.bundleIdentifier }
             let sortedMetaDatas = filteredMetaDatas.sorted(by: { $0.name < $1.name })
             sortedMetaDatas.forEach { self.metaDatas.append($0) }
         }
@@ -67,8 +67,8 @@ class RunningAppsViewModel: NSObject {
             let versionDesctiption = "version \(version)"
             
             let runningApps = NSWorkspace.shared.runningApplications.filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
-            let activeState = runningApps.compactMap { $0.bundleURL }.filter { $0.path == appUrl.path }.count > 0
-            return ApplicationMetaData(name: name, url: appUrl, identifier: identifier, version: version, versionDesctiption: versionDesctiption, icon: icon, isActive: activeState)
+            let runningState = runningApps.compactMap { $0.bundleURL }.filter { $0.path == appUrl.path }.count > 0
+            return ApplicationMetaData(name: name, url: appUrl, identifier: identifier, version: version, versionDesctiption: versionDesctiption, icon: icon, isRunning: runningState)
         }
         return appMetaDatas
     }

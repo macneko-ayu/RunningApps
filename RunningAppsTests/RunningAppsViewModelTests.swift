@@ -31,7 +31,7 @@ class RunningAppsViewModelTests: XCTestCase {
         XCTAssertNotNil(item!.versionDesctiption)
         XCTAssertNotNil(item!.icon)
         XCTAssertEqual(item!.url, URL(fileURLWithPath: "/Applications/Xcode.app"))
-        XCTAssertEqual(item!.isActive, true)
+        XCTAssertEqual(item!.isRunning, true)
     }
     
     func testInitializeFromInValidBundleIdentifier() {

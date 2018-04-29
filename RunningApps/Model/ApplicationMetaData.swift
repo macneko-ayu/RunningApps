@@ -15,16 +15,16 @@ class ApplicationMetaData: NSObject {
     @objc dynamic let version: String
     @objc dynamic var versionDesctiption: String
     @objc dynamic var icon: NSImage?
-    @objc dynamic let isActive: Bool
+    @objc dynamic let isRunning: Bool
     
-    init(name: String, url: URL, identifier: String, version: String, versionDesctiption: String, icon: NSImage?, isActive flag: Bool) {
+    init(name: String, url: URL, identifier: String, version: String, versionDesctiption: String, icon: NSImage?, isRunning flag: Bool) {
         self.name = name
         self.url = url
         self.identifier = identifier
         self.version = version
         self.versionDesctiption = versionDesctiption
         self.icon = icon
-        self.isActive = flag
+        self.isRunning = flag
     }
 }
 
