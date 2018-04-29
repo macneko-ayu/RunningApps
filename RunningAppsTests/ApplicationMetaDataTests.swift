@@ -22,7 +22,7 @@ class ApplicationMetaDataTests: XCTestCase {
     }
 
     func testInitislizeApplicationMetaData() {
-        let model = ApplicationMetaData(name: "Xcode", url: URL(fileURLWithPath: "/Applications/Xcode.app"), identifier: "com.apple.dt.xcode", version: "1", versionDesctiption: "verson 1", icon: nil, isActive: false)
+        let model = ApplicationMetaData(name: "Xcode", url: URL(fileURLWithPath: "/Applications/Xcode.app"), identifier: "com.apple.dt.xcode", version: "1", versionDesctiption: "verson 1", icon: nil, isRunning: false)
         XCTAssertNotNil(model)
     }
 }
