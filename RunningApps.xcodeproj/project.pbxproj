@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3133E38EE373A77CF2F8208B /* AppListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133ECE76B2D2D001277EA98 /* AppListView.swift */; };
 		3133E82B044C5E656443CBC5 /* ApplicationMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133E6EC987F11FDABD759D0 /* ApplicationMetaData.swift */; };
+		3133E862B50EA9B12DDFC3E1 /* RunningAppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133EB40991D81FB59D35F14 /* RunningAppsViewModel.swift */; };
 		3133EB0B358032604785864B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133E7AE21858122D4E218EF /* ContentView.swift */; };
 		550DD7DB257C945F00CCCDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550DD7DA257C945F00CCCDCB /* AppDelegate.swift */; };
 		550DD7DF257C946300CCCDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550DD7DE257C946300CCCDCB /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		3133E6EC987F11FDABD759D0 /* ApplicationMetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationMetaData.swift; sourceTree = "<group>"; };
 		3133E7AE21858122D4E218EF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3133EB40991D81FB59D35F14 /* RunningAppsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningAppsViewModel.swift; sourceTree = "<group>"; };
 		3133ECE76B2D2D001277EA98 /* AppListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListView.swift; sourceTree = "<group>"; };
 		550DD7D8257C945F00CCCDCB /* RunningAppsSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningAppsSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		550DD7DA257C945F00CCCDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		3133E94EA0966C8F4E59DB6B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3133EB40991D81FB59D35F14 /* RunningAppsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				3133EB0B358032604785864B /* ContentView.swift in Sources */,
 				3133E82B044C5E656443CBC5 /* ApplicationMetaData.swift in Sources */,
 				3133E38EE373A77CF2F8208B /* AppListView.swift in Sources */,
+				3133E862B50EA9B12DDFC3E1 /* RunningAppsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
