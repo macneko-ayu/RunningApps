@@ -9,13 +9,27 @@
 import SwiftUI
 
 struct AppListView: View {
+    let metaData: ApplicationMetaData
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(nsImage: metaData.icon ?? NSImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 36, height: 36)
+
+            VStack(alignment: .leading) {
+                Text(metaData.name).fontWeight(.bold)
+                Text(metaData.versionDescription)
+            }
+        }
+        .padding(8)
     }
 }
 
 struct AppListView_Previews: PreviewProvider {
     static var previews: some View {
-        AppListView()
+        AppListView(metaData: ApplicationMetaData(name: "dummy name", url: URL(fileURLWithPath: ""),
+                                                  identifier: "com.macneko.dummy", version: "0.0.0", icon: NSImage(), isRunning: true))
     }
 }
