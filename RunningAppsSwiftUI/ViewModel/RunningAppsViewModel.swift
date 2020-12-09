@@ -10,6 +10,8 @@ import Cocoa
 
 final class RunningAppsViewModel: ObservableObject {
     @Published var metaData = [ApplicationMetaData]()
+    let windowMinWidth: CGFloat = 250
+    let rowMinHeight: CGFloat = 44
 
     init() {
         setupObserver()

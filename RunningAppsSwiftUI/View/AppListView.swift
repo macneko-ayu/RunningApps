@@ -12,9 +12,11 @@ struct AppListView: View {
     let metaData: ApplicationMetaData
 
     var body: some View {
+        // TODO: GeometryReaderで親のサイズとそろえたほうがいいかも？
         HStack {
             Image(nsImage: metaData.icon ?? NSImage())
                 .resizable()
+                .renderingMode(.original)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 36, height: 36)
 
@@ -23,7 +25,7 @@ struct AppListView: View {
                 Text(metaData.versionDescription)
             }
         }
-        .padding(8)
+        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
     }
 }
 

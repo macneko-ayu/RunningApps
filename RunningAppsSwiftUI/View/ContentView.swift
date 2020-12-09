@@ -12,7 +12,7 @@ struct ContentView: View {
     @ObservedObject private var viewModel = RunningAppsViewModel()
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        ScrollView(.vertical, showsIndicators: true) {
             ForEach(viewModel.metaData) { data in
                 Button(action: {
                     guard let app = NSWorkspace.shared.runningApplications
@@ -22,12 +22,22 @@ struct ContentView: View {
                     app.activate(options: [])
                 }) {
                     AppListView(metaData: data)
+                        // TODO: widthを指定しないと左揃えにならない。他のView Modifiersがありそう
+                        .frame(width: viewModel.windowMinWidth, height: viewModel.rowMinHeight, alignment: .leading)
                 }
+                // これを指定するとボタン内のグレーのViewがなくなり、AppListViewのサイズの透明ボタンができる
+                .buttonStyle(PlainButtonStyle())
+
+                // 横線を引く
+                Divider()
             }
         }
+        // AppListViewのpaddingを加味して、足りない天地の余白だけ指定
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 8))
+        // 子View内の最大サイズにあわせてFitする
+        .fixedSize(horizontal: true, vertical: false)
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
