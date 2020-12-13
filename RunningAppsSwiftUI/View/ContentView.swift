@@ -33,7 +33,7 @@ struct ContentView: View {
             }
         }
         // AppListViewのpaddingを加味して、足りない天地の余白だけ指定
-        .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 8))
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
         // 子View内の最大サイズにあわせてFitする
         .fixedSize(horizontal: true, vertical: false)
     }
