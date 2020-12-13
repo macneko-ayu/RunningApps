@@ -22,18 +22,15 @@ struct ContentView: View {
                     app.activate(options: [])
                 }) {
                     ListRowView(metaData: data)
-                        // TODO: widthを指定しないと左揃えにならない。他のView Modifiersがありそう
-                        .frame(width: viewModel.windowMinWidth, height: viewModel.rowMinHeight, alignment: .leading)
                 }
                 // これを指定するとボタン内のグレーのViewがなくなり、AppListViewのサイズの透明ボタンができる
                 .buttonStyle(PlainButtonStyle())
+                .foregroundColor(.blue)
 
                 // 横線を引く
                 Divider()
             }
         }
-        // AppListViewのpaddingを加味して、足りない天地の余白だけ指定
-        .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
         // 子View内の最大サイズにあわせてFitする
         .fixedSize(horizontal: true, vertical: false)
     }

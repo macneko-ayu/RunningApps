@@ -13,19 +13,24 @@ struct ListRowView: View {
 
     var body: some View {
         // TODO: GeometryReaderで親のサイズとそろえたほうがいいかも？
-        HStack {
-            Image(nsImage: metaData.icon ?? NSImage())
-                .resizable()
-                .renderingMode(.original)
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 36, height: 36)
+//        HStack {
+            HStack {
+                Image(nsImage: metaData.icon ?? NSImage())
+                    .resizable()
+                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 36, height: 36, alignment: .center)
 
-            VStack(alignment: .leading) {
-                Text(metaData.name).fontWeight(.bold)
-                Text(metaData.versionDescription)
+                VStack(alignment: .leading) {
+                    Text(metaData.name).fontWeight(.bold)
+                    Text(metaData.versionDescription)
+                }
             }
-        }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .frame(minWidth: 250, minHeight: 52, alignment: .leading)
+//        }
+        .background(Rectangle())
+        .contentShape(Rectangle())
     }
 }
 
