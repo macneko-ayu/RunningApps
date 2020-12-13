@@ -21,7 +21,7 @@ struct ContentView: View {
                         else { return }
                     app.activate(options: [])
                 }) {
-                    AppListView(metaData: data)
+                    ListRowView(metaData: data)
                         // TODO: widthを指定しないと左揃えにならない。他のView Modifiersがありそう
                         .frame(width: viewModel.windowMinWidth, height: viewModel.rowMinHeight, alignment: .leading)
                 }

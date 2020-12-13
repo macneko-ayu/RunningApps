@@ -1,5 +1,5 @@
 //
-//  AppListView.swift
+//  ListRowView.swift
 //  RunningApps
 //
 //  Created by Kojiro Yokota on 2020/12/07.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AppListView: View {
+struct ListRowView: View {
     let metaData: ApplicationMetaData
 
     var body: some View {
@@ -29,9 +29,9 @@ struct AppListView: View {
     }
 }
 
-struct AppListView_Previews: PreviewProvider {
+struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        AppListView(metaData: ApplicationMetaData(name: "dummy name", url: URL(fileURLWithPath: ""),
+        ListRowView(metaData: ApplicationMetaData(name: "dummy name", url: URL(fileURLWithPath: ""),
                                                   identifier: "com.macneko.dummy", version: "0.0.0", icon: NSImage(), isRunning: true))
     }
 }
