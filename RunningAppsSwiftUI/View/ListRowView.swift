@@ -20,7 +20,10 @@ struct ListRowView: View {
                 .frame(width: 36, height: 36, alignment: .center)
 
             VStack(alignment: .leading) {
-                Text(metaData.name).fontWeight(.bold)
+                Text(metaData.name)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 5)
+
                 Text(metaData.versionDescription)
             }
         }
