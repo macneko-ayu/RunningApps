@@ -25,7 +25,6 @@ struct ListRowView: View {
             }
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-        .frame(minWidth: 250, minHeight: 52, alignment: .leading)
         .background(Rectangle().foregroundColor(.clear))
         .contentShape(Rectangle())
     }
