@@ -36,6 +36,6 @@ struct ListRowView: View {
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
         ListRowView(metaData: ApplicationMetaData(name: "dummy name", url: URL(fileURLWithPath: ""),
-                                                  identifier: "com.macneko.dummy", version: "0.0.0", icon: NSImage(), isRunning: true))
+                                                  identifier: "com.macneko.dummy", version: "0.0.0",  shortVersion: "x.x.x", icon: NSImage(), isRunning: true))
     }
 }

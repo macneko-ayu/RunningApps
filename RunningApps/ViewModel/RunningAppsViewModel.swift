@@ -64,7 +64,8 @@ class RunningAppsViewModel: NSObject {
             let name = self.extractName(path: path)
             let icon = NSWorkspace.shared.icon(forFile: path)
             let version = infoDictionary["CFBundleVersion"] as? String ?? "unknown"
-            let versionDesctiption = "version \(version)"
+            let shortVersion = infoDictionary["CFBundleShortVersionString"] as? String ?? "unknown"
+            let versionDesctiption = "version: \(shortVersion)(\(version))"
             
             let runningApps = NSWorkspace.shared.runningApplications.filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
             let runningState = runningApps.compactMap { $0.bundleURL }.filter { $0.path == appUrl.path }.count > 0
