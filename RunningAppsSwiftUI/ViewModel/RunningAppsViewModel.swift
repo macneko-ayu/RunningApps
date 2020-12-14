@@ -66,6 +66,7 @@ extension RunningAppsViewModel {
             let name = self?.extractName(path: path) ?? "unknown"
             let icon = NSWorkspace.shared.icon(forFile: path)
             let version = infoDictionary["CFBundleVersion"] as? String ?? "unknown"
+            let shortVersion = infoDictionary["CFBundleShortVersionString"] as? String ?? "unknown"
 
             let runningApps = NSWorkspace.shared.runningApplications
                     .filter { $0.activationPolicy == NSApplication.ActivationPolicy.regular }
@@ -73,7 +74,7 @@ extension RunningAppsViewModel {
                     .filter { $0.path == appUrl.path }
                     .count > 0
             return ApplicationMetaData(name: name, url: appUrl, identifier: identifier, version: version,
-                    icon: icon, isRunning: runningState)
+                    shortVersion: shortVersion, icon: icon, isRunning: runningState)
         }
         return appMetaData
     }
