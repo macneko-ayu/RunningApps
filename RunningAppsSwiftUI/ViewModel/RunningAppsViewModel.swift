@@ -28,9 +28,9 @@ extension RunningAppsViewModel {
         bundleIdentifiers.forEach { (identifier: String) in
             let data = makeMetaData(bundleIdentifier: identifier)
             let filteredMetaData = data.filter { $0.isRunning && $0.identifier != Bundle.main.bundleIdentifier }
-            let sortedMetaData = filteredMetaData.sorted(by: { $0.name < $1.name })
-            sortedMetaData.forEach { metaData.append($0) }
+            filteredMetaData.forEach { metaData.append($0) }
         }
+        metaData.sort(by: { $0.name.lowercased() < $1.name.lowercased() })
     }
 }
 
@@ -102,7 +102,6 @@ extension RunningAppsViewModel {
     /// アプリ起動時にリストを更新（自身は含めない）
     ///
     /// - Parameter notification: Notification
-    // TODO: 更新が走るようにする
     @objc private func appDidLaunch(notification: Notification) {
         guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
               let identifier = app.bundleIdentifier else { return }
@@ -113,7 +112,6 @@ extension RunningAppsViewModel {
     /// アプリ終了時にリストを更新
     ///
     /// - Parameter notification: Notification
-    // TODO: 更新が走るようにする
     @objc private func appDidTerminate(notification: Notification) {
         guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
               let identifier = app.bundleIdentifier,
