@@ -21,10 +21,11 @@ struct ListRowView: View {
 
             VStack(alignment: .leading) {
                 Text(metaData.name)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 5)
+                    .font(.system(size: 12, weight: .bold, design: .default))
+                    .padding(.bottom, 7)
 
                 Text(metaData.versionDescription)
+                    .font(.system(size: 12, weight: .regular, design: .default))
             }
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
